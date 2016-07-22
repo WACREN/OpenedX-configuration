@@ -46,3 +46,36 @@ supervisor_version: 3.2.3
 supervisor_pip_pkgs:
   - boto=="{{ common_boto_version }}"
   - python-simple-hipchat
+
+supervisor_spec:
+  - service: edxapp
+    python: python.edxapp
+    code: "{{ edxapp_code_dir }}"
+    env: "{{ edxapp_app_dir }}/edxapp_env"
+  - service: xqueue
+    python: python.xqueue
+    code: "{{ xqueue_code_dir }}"
+  - service: ecommerce
+    python: python.ecommerce
+    code: "{{ ecommerce_code_dir }}"
+    env: "{{ ecommerce_home }}/ecommerce_env"
+  - service: insights
+    python: python.insights
+    code: "{{ insights_code_dir }}"
+    env: "{{ insights_home }}/insights_env"
+  - service: analytics_api
+    python: python.analytics_api
+    code: "{{ analytics_api_code_dir }}"
+    env: "{{ analytics_api_home }}/analytics_api_env"
+  - service: programs
+    python: python.programs
+    code: "{{ programs_code_dir }}"
+    env: "{{ programs_home }}/programs_env"
+  - service: credentials
+    python: python.credentials
+    code: "{{ credentials_code_dir }}"
+    env: "{{ credentials_home }}/credentials_env"
+  - service: discovery
+    python: python.discovery
+    code: "{{ discovery_code_dir }}"
+    env: "{{ discovery_home }}/discovery_env"
